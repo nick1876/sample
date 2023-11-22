@@ -1,0 +1,52 @@
+Microservice ==>Every feature has different DB and server
+Monolithic ==>All features have single DB and server
+
+Architecture ==>   MVC - Model 
+                         Views - templates 
+                         Controller (also known as Business Logic Layer) - routes
+                   SOC - Sepration of concern(code) - It keeps our code segregated(to increase needability)
+
+=>Product , Users , Reviews
+
+=>At production level we create a file named as app.js
+=>Whenever we create a model then try the filename of model should start with capital letter
+
+=>Reviews is an array of objects i.e rating and comments
+=>To add multiple revies in the same array of products is a bad way as it will fuck the readability and we cannot jump to another Product
+
+==> Relationships 
+-They are of three types
+
+1) 1:1
+2) 1:few
+3) 1:many
+
+=> 1:1 - When we match a single name with the addhar number of that person
+
+-There is no boundation or wall between few and many Relationships as the size of few and many vary with the condition 
+-These Relationships are relative according to scnenario
+
+=> 1:few 
+=> 1:many = Ex.Reviews and therefore we cannot store it in the same DB and we have to change the collection.
+
+Products                                       |                        Review
+{                                                     {              
+      id:  ,                                               id: , 
+      name: ,                                              rating: ,
+      img: ,                                               comment:
+      desc: ,                                          }
+      reviews: [
+            {
+                  id: ,
+                  rating: ,
+                  comment: 
+            }
+      ]
+}   
+
+We create a seprate model for reviews of different products and these reviews are identified by the unique id of the product,
+The id of the review is stred inside the Model product having the information of that Product.
+With the help of that id we search the reviews of that product inside the model of the reviews.
+
+
+
